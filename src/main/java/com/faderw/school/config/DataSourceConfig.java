@@ -19,7 +19,7 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 public class DataSourceConfig {
 
     private static final String SPRING_DATASOURCE = "spring.datasource";
-    private static final String MAPPER_LOCATIONS = "mapper/*.xml";
+//    private static final String MAPPER_LOCATIONS = "mapper/*.xml";
 
     @Value("${mybatis.type-aliases-package}")
     private String typeAliasesPackage; 
@@ -36,8 +36,8 @@ public class DataSourceConfig {
         SqlSessionFactoryBean sessionFactoryBean = new SqlSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource());
 
-        String patternPath = ResourcePatternResolver.CLASSPATH_URL_PREFIX + MAPPER_LOCATIONS;
-        sessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(patternPath));
+//        String patternPath = ResourcePatternResolver.CLASSPATH_URL_PREFIX + MAPPER_LOCATIONS;
+//        sessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(patternPath));
         sessionFactoryBean.setTypeAliasesPackage(typeAliasesPackage);
 
         return sessionFactoryBean;
